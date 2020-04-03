@@ -1,0 +1,14 @@
+.custom {
+  width: inherit;
+  font-size: larger;
+}
+.ui.card {
+  width: 400px;
+}
+button {
+  background-color: white;
+  border: 2px solid blueviolet;
+  border-radius: 5px;
+  color: white;
+  background-color: blueviolet;
+}
