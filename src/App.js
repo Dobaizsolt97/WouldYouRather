@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import SignIn from "./components/SignIn";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
-import Answer from "./components/answer";
+//import NewQuestion from "./components/NewQuestion";
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class App extends Component {
         <NavBar user={this.props.user} auth={this.handleLogin} />
         {authenticated ? null : <SignIn />}
         {authenticated === null ? null : <Feed />}
-        <Answer />
+        {/* <NewQuestion /> */}
       </div>
     );
   }

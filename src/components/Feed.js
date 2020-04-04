@@ -11,7 +11,7 @@ class Feed extends Component {
     }));
   }
   render(props) {
-    let ids = this.state.ids;
+    let ids = this.props.questionIds;
 
     return (
       <div className="container">

@@ -16,7 +16,9 @@ function NavBar(props) {
           Leaderboards
         </a>
         <div className="right menu">
-          {props.user ? <div className="item">Hello {props.user}</div> : null}
+          {props.user[0] ? (
+            <div className="item">Hello {props.user}</div>
+          ) : null}
           <div className="item">
             <div className="ui transparent icon input">
               <a

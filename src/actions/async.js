@@ -2,6 +2,7 @@ import * as DatabaseAPI from "../utils/_DATA";
 
 import { getQuestions } from "./questions";
 import { getUsers } from "./users";
+import { setQuestion } from "./questions";
 
 export function handleInitialData() {
   return dispatch => {
@@ -13,5 +14,14 @@ export function handleInitialData() {
         dispatch(getUsers(response));
       })
     );
+  };
+}
+
+export function handleSetQuestion(question) {
+  return dispatch => {
+    console.log("aaa");
+    return DatabaseAPI._saveQuestion(question).then(response => {
+      dispatch(setQuestion(response));
+    });
   };
 }
