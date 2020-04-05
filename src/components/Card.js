@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./card.css";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   let user = props.user;
@@ -13,7 +14,10 @@ function Card(props) {
           <div className="center aligned header">{user.name}</div>
           <div className="center aligned description">
             <p>{postInfo.optionOne.text} OR ...</p>
-            <button> See poll</button>
+
+            <Link to={`/question/${props.id}`}>
+              <button> See poll</button>
+            </Link>
           </div>
         </div>
         <div className="extra content">
@@ -38,6 +42,6 @@ function mapStateToProps({ Users, Questions }, { id }) {
   let questionInfo = Questions[id];
   return {
     questionInfo: questionInfo,
-    user: Users[questionInfo.author]
+    user: Users[questionInfo.author],
   };
 }

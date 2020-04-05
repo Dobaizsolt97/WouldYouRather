@@ -1,17 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import { handleSetQuestion } from "../actions/async";
 
 class NewQuestion extends React.Component {
-  state = { opt1: "", opt2: "" };
-  handleInput1 = e => {
+  state = { opt1: "", opt2: "", toHome: false };
+  handleInput1 = (e) => {
     this.setState({ opt1: e.target.value });
   };
-  handleInput2 = e => {
+  handleInput2 = (e) => {
     this.setState({ opt2: e.target.value });
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     //stop the form from submitting
     e.preventDefault();
     //obtaining question propreties
@@ -21,12 +22,16 @@ class NewQuestion extends React.Component {
     let question = {
       optionOneText: opt1,
       optionTwoText: opt2,
-      author
+      author,
     };
     //returning the new Question with the right format, this has to be dispatched to the redux store
     this.props.dispatch(handleSetQuestion(question));
+    this.setState(() => ({ toHome: true }));
   };
   render() {
+    if (this.state.toHome === true) {
+      return <Redirect to="/"></Redirect>;
+    }
     console.log(this.state);
     return (
       <div className="ui container">
@@ -71,6 +76,6 @@ export default connect(mapStateToProps)(NewQuestion);
 
 function mapStateToProps({ User }) {
   return {
-    authed: User.authed
+    authed: User.authed,
   };
 }

@@ -8,9 +8,13 @@ function SignIn(props) {
   return (
     <div className="ui container sign-in">
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           let value = document.getElementById("submit-field").value;
+
+          if (value === "default") {
+            return;
+          }
           //props.dispatch(User(value));
           props.dispatch(User(value));
         }}
@@ -19,7 +23,7 @@ function SignIn(props) {
         <div className="field">
           <label>Welcome back</label>
           <select id="submit-field">
-            <option unselectable="true" value="a">
+            <option unselectable="true" value="default">
               Choose account
             </option>
             <option value="sarahedo">Sarah Edo</option>

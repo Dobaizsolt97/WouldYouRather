@@ -1,17 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { User } from "../actions/authedUser";
+import { Link } from "react-router-dom";
 
 function NavBar(props) {
   return (
     <div>
       <div className="ui pointing menu">
-        <a href="/" className="active item">
+        <Link to="/" className="active item">
           Home
-        </a>
-        <a href="/" className="item">
+        </Link>
+        <Link to="/add" className="item">
           New Question
-        </a>
+        </Link>
         <a href="/" className="item">
           Leaderboards
         </a>
@@ -23,7 +24,7 @@ function NavBar(props) {
             <div className="ui transparent icon input">
               <a
                 href="/"
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault(props.dispatch(User(null)));
                 }}
                 className="item"
@@ -45,6 +46,6 @@ export default connect(mapStateToProps)(NavBar);
 
 function mapStateToProps({ User }) {
   return {
-    name: User
+    name: User,
   };
 }

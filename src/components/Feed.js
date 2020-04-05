@@ -4,27 +4,51 @@ import Card from "./Card";
 import "./feed.css";
 
 class Feed extends Component {
-  state = {};
-  componentDidMount() {
-    this.setState(() => ({
-      ids: this.props.questionIds
-    }));
-  }
-  render(props) {
-    let ids = this.props.questionIds;
+  state = { filterStatus: "unanswered" };
 
-    return (
-      <div className="container">
-        {ids ? ids.map(id => <Card key={id} id={id}></Card>) : null}
-      </div>
+  render(props) {
+    const { questions, user } = this.props;
+    let ids = this.props.questionIds;
+    let answeredIds = ids.filter(
+      (id) =>
+        questions[id].optionOne.votes.includes(user) ||
+        questions[id].optionTwo.votes.includes(user)
     );
+
+    let unansweredIds = ids.filter((id) => !answeredIds.includes(id));
+
+    if (ids) {
+      return (
+        <div className="container">
+          <button
+            onClick={() => this.setState(() => ({ filterStatus: "answered" }))}
+          >
+            Answered
+          </button>
+          <button
+            onClick={() =>
+              this.setState(() => ({ filterStatus: "unanswered" }))
+            }
+          >
+            Unanswered
+          </button>
+          {this.state.filterStatus === "unanswered"
+            ? unansweredIds.map((id) => <Card key={id} id={id}></Card>)
+            : answeredIds.map((id) => <Card key={id} id={id}></Card>)}
+        </div>
+      );
+    } else return null;
   }
 }
 
 export default connect(mapStateToProps)(Feed);
 
-function mapStateToProps({ Questions }) {
+function mapStateToProps({ Questions, User }) {
   return {
-    questionIds: Object.keys(Questions)
+    questionIds: Object.keys(Questions).sort(
+      (a, b) => Questions[b].timestamp - Questions[a].timestamp
+    ),
+    user: User.authed,
+    questions: Questions,
   };
 }
