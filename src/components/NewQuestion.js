@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import { handleSetQuestion } from "../actions/async";
+import { handleSetQuestion } from "../actions/shared";
 
 class NewQuestion extends React.Component {
   state = { opt1: "", opt2: "", toHome: false };

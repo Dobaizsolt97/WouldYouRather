@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { handleInitialData } from "./actions/async";
+import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
@@ -7,6 +7,7 @@ import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
 import NewQuestion from "./components/NewQuestion";
 import Answer from "./components/answer";
+import LeaderBoard from "./components/LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -24,10 +25,9 @@ class App extends Component {
           ) : (
             <Route exact path="/" component={SignIn}></Route>
           )}
-
           <Route exact path="/add" component={NewQuestion}></Route>
-          {/* <Answer match={{ params: { id: "6ni6ok3ym7mf1p33lnez" } }}></Answer> */}
           <Route path="/question/:id" component={Answer}></Route>
+          <Route exact path="/leaderboard" component={LeaderBoard}></Route>
         </div>
       </Router>
     );

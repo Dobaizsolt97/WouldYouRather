@@ -13,9 +13,9 @@ function NavBar(props) {
         <Link to="/add" className="item">
           New Question
         </Link>
-        <a href="/" className="item">
+        <Link to="/leaderboard" className="item">
           Leaderboards
-        </a>
+        </Link>
         <div className="right menu">
           {props.user[0] ? (
             <div className="item">Hello {props.user}</div>
