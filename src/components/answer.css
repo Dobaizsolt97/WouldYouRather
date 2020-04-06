@@ -1,0 +1,43 @@
+.answer-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #14374e69;
+  border-radius: 20px;
+  text-align: center;
+  height: 40vh;
+  background-color: rgb(255, 255, 255);
+}
+.answer-container > .right-container form > button {
+  background-color: #0d466b;
+  border: none;
+  padding: 10px;
+}
+.answer-container > .right-container form > button:hover {
+  transform: scale(1.1);
+}
+.right-container {
+  width: 50%;
+
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+}
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  color: black;
+}
+.left-container > img {
+  width: 40%;
+  height: 50%;
+}
