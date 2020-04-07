@@ -7,6 +7,14 @@ import Statistics from "../components/statistics";
 
 class Answer extends Component {
   state = { hasAnswered: false };
+  componentDidMount() {
+    let { question, user } = this.props;
+    let userAnswearedA = question.optionOne.votes.includes(user);
+    let userAnswearedB = question.optionTwo.votes.includes(user);
+    if (userAnswearedA || userAnswearedB) {
+      this.setState(() => ({ hasAnswered: true }));
+    }
+  }
   handleAnswer = (e) => {
     e.preventDefault();
     let answer = {
@@ -21,14 +29,12 @@ class Answer extends Component {
   };
   render(props) {
     const { question, users } = this.props;
-    console.log(users);
 
     if (this.props.user) {
       let optionOne = question.optionOne.text;
       let optionTwo = question.optionTwo.text;
       let author = question.author;
       let link = users[author].avatarURL;
-      console.log(link.avatarURL);
 
       return (
         <div className="ui container">
