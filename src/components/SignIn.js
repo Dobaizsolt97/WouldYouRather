@@ -4,19 +4,15 @@ import { User } from "../actions/authedUser";
 import "./signIn.css";
 
 function SignIn(props) {
-  //props.dispatch(User("tyler"));
-
   return (
     <div className="ui container sign-in">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           let value = document.getElementById("submit-field").value;
-
           if (value === "default") {
             return;
           }
-          //props.dispatch(User(value));
           props.dispatch(User(value));
         }}
         className="ui form"

@@ -4,16 +4,15 @@ import "./card.css";
 import { Link } from "react-router-dom";
 
 function Card(props) {
-  let user = props.user;
-  let postInfo = props.questionInfo;
-  console.log(props.id);
+  const { user, questionInfo } = props;
+
   if (user) {
     return (
       <div className="ui card custom">
         <div className="content">
           <div className="center aligned header">{user.name}</div>
           <div className="center aligned description">
-            <p>{postInfo.optionOne.text} OR ...</p>
+            <p>{questionInfo.optionOne.text} OR ...</p>
 
             <Link to={`/question/${props.id}`}>
               <button className="card-btn"> See poll</button>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Card from "./Card";
-import "./feed.css";
+import "./Home.css";
 
-class Feed extends Component {
+class Home extends Component {
   state = { filterStatus: "unanswered" };
 
   render(props) {
@@ -47,7 +47,7 @@ class Feed extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Feed);
+export default connect(mapStateToProps)(Home);
 
 function mapStateToProps({ Questions, User }) {
   return {

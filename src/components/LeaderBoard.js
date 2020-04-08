@@ -1,15 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import BoardCard from "./BoardCard";
-import { Redirect } from "react-router-dom";
 
 function LeaderBoard(props) {
-  let user = props.user;
-  console.log(user);
   let ids = props.uid;
   let scores = props.scorelist;
-  console.log(ids);
-  console.log(scores);
   let objectsScores = {};
   for (let i = 0; i < ids.length; i++) {
     objectsScores[ids[i]] = scores[i];

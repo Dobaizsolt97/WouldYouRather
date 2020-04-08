@@ -35,8 +35,6 @@ class NewQuestion extends React.Component {
       return <Redirect to="/"></Redirect>;
     }
 
-    console.log(this.state);
-    console.log(this.props.authed);
     return (
       <div className="ui container">
         <form className="ui form new-question-form">

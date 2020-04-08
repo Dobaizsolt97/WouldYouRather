@@ -11,7 +11,6 @@ class Answer extends Component {
   state = { hasAnswered: false };
   componentDidMount() {
     let { answered } = this.props;
-
     if (answered) {
       this.setState(() => ({ hasAnswered: true }));
     }
@@ -31,7 +30,7 @@ class Answer extends Component {
   };
   render(props) {
     const { question, users, badid, id } = this.props;
-    console.log(this.props);
+
     if (badid) {
       return <Redirect to="/404"></Redirect>;
     }

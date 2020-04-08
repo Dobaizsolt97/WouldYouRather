@@ -3,18 +3,15 @@ import { connect } from "react-redux";
 import "./statistics.css";
 
 function Statistics(props) {
-  console.log(props);
-  let user = props.user;
-  let votesA = props.question.optionOne.votes.length;
-  let votesB = props.question.optionTwo.votes.length;
-  let percentageA = ((votesA * 100) / (votesA + votesB)).toFixed(0);
-  let percentageB = 100 - percentageA;
-  let userAnsweredA = props.question.optionOne.votes.includes(user);
-  let userAnsweredB = props.question.optionTwo.votes.includes(user);
+  const {
+    votesA,
+    votesB,
+    percentageA,
+    percentageB,
+    userAnsweredA,
+    userAnsweredB,
+  } = props;
 
-  console.log(userAnsweredA);
-  console.log(percentageA + "%");
-  console.log(votesA, votesB);
   if (userAnsweredA || userAnsweredB) {
     return (
       <div className="statistics-container">
@@ -47,8 +44,23 @@ function Statistics(props) {
 export default connect(mapStateToProps)(Statistics);
 
 function mapStateToProps({ Questions, User }, { id }) {
+  let user = User.authed;
+  let question = Questions[id];
+  let votesA = question.optionOne.votes.length;
+  let votesB = question.optionTwo.votes.length;
+  let percentageA = ((votesA * 100) / (votesA + votesB)).toFixed(0);
+  let percentageB = 100 - percentageA;
+  let userAnsweredA = question.optionOne.votes.includes(user);
+  let userAnsweredB = question.optionTwo.votes.includes(user);
+
   return {
     question: Questions[id],
     user: User.authed,
+    votesA,
+    votesB,
+    percentageA,
+    percentageB,
+    userAnsweredA,
+    userAnsweredB,
   };
 }

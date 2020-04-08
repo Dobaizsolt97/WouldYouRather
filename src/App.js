@@ -3,7 +3,7 @@ import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./components/SignIn";
-import Feed from "./components/Feed";
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import NewQuestion from "./components/NewQuestion";
 import Answer from "./components/answer";
@@ -25,7 +25,7 @@ class App extends Component {
               <NavBar user={this.props.user} auth={this.handleLogin} />
               <Switch>
                 <Route exact path="/404" component={BadId}></Route>
-                <Route exact path="/" component={Feed}></Route>
+                <Route exact path="/" component={Home}></Route>
                 <Route exact path="/add" component={NewQuestion}></Route>
                 <Route exact path="/question/:id" component={Answer}></Route>
                 <Route
