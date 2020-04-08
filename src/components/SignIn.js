@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { User } from "../actions/authedUser";
+import "./signIn.css";
 
 function SignIn(props) {
   //props.dispatch(User("tyler"));
@@ -21,7 +22,10 @@ function SignIn(props) {
         className="ui form"
       >
         <div className="field">
-          <label>Welcome back</label>
+          <div className="logo-container">
+            <div className="logo"></div>
+          </div>
+          <h1>Welcome back</h1>
           <select id="submit-field">
             <option unselectable="true" value="default">
               Choose account
@@ -32,7 +36,7 @@ function SignIn(props) {
           </select>
         </div>
 
-        <button className="ui button" type="submit">
+        <button className=" button" type="submit">
           Submit
         </button>
       </form>

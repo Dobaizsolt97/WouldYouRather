@@ -19,23 +19,24 @@ function Statistics(props) {
     return (
       <div className="statistics-container">
         <h1>Here are the results</h1>
-        <div className="load-bar-container">
-          {userAnsweredA ? (
-            <div
-              style={{ width: `${percentageA}%` }}
-              className="loading-bar"
-            ></div>
-          ) : (
-            <div
-              style={{ width: `${percentageB}%` }}
-              className="loading-bar"
-            ></div>
-          )}
-        </div>
-        <h3>
+        <h2>
           You voted the same as {userAnsweredA ? percentageA : percentageB}% of
           our users
-        </h3>
+        </h2>
+        <h3>{`${percentageA}% voted the first option with a total of ${votesA} votes `}</h3>
+        <div className="load-bar-container">
+          <div
+            style={{ width: `${percentageA}%` }}
+            className="loading-bar"
+          ></div>
+        </div>
+        <h3>{`${percentageB}% voted the second option with a total of ${votesB} votes `}</h3>
+        <div className="load-bar-container">
+          <div
+            style={{ width: `${percentageB}%` }}
+            className="loading-bar"
+          ></div>
+        </div>
       </div>
     );
   } else {

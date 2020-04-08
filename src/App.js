@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
 import NewQuestion from "./components/NewQuestion";
 import Answer from "./components/answer";
 import LeaderBoard from "./components/LeaderBoard";
+import BadId from "./components/badId";
 
 class App extends Component {
   componentDidMount() {
@@ -19,15 +20,24 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar user={this.props.user} auth={this.handleLogin} />
           {authenticated ? (
-            <Route exact path="/" component={Feed}></Route>
+            <Fragment>
+              <NavBar user={this.props.user} auth={this.handleLogin} />
+              <Switch>
+                <Route exact path="/404" component={BadId}></Route>
+                <Route exact path="/" component={Feed}></Route>
+                <Route exact path="/add" component={NewQuestion}></Route>
+                <Route exact path="/question/:id" component={Answer}></Route>
+                <Route
+                  exact
+                  path="/leaderboard"
+                  component={LeaderBoard}
+                ></Route>
+              </Switch>
+            </Fragment>
           ) : (
-            <Route exact path="/" component={SignIn}></Route>
+            <Route render={() => <SignIn />} />
           )}
-          <Route exact path="/add" component={NewQuestion}></Route>
-          <Route path="/question/:id" component={Answer}></Route>
-          <Route exact path="/leaderboard" component={LeaderBoard}></Route>
         </div>
       </Router>
     );

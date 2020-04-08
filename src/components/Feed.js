@@ -20,18 +20,24 @@ class Feed extends Component {
     if (ids) {
       return (
         <div className="container">
-          <button
-            onClick={() => this.setState(() => ({ filterStatus: "answered" }))}
-          >
-            Answered
-          </button>
-          <button
-            onClick={() =>
-              this.setState(() => ({ filterStatus: "unanswered" }))
-            }
-          >
-            Unanswered
-          </button>
+          <div className="btn-container">
+            <button
+              className="button"
+              onClick={() =>
+                this.setState(() => ({ filterStatus: "answered" }))
+              }
+            >
+              Answered
+            </button>
+            <button
+              className="button"
+              onClick={() =>
+                this.setState(() => ({ filterStatus: "unanswered" }))
+              }
+            >
+              Unanswered
+            </button>
+          </div>
           {this.state.filterStatus === "unanswered"
             ? unansweredIds.map((id) => <Card key={id} id={id}></Card>)
             : answeredIds.map((id) => <Card key={id} id={id}></Card>)}

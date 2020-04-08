@@ -9,14 +9,7 @@
   height: 40vh;
   background-color: rgb(255, 255, 255);
 }
-.answer-container > .right-container form > button {
-  background-color: #0d466b;
-  border: none;
-  padding: 10px;
-}
-.answer-container > .right-container form > button:hover {
-  transform: scale(1.1);
-}
+
 .right-container {
   width: 50%;
 
@@ -40,4 +33,23 @@
 .left-container > img {
   width: 40%;
   height: 50%;
+  padding: 5px;
+}
+.unanswered-button {
+  color: white;
+  background-color: #ff892863;
+
+  border-radius: 20px;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
+}
+.chosen-btn {
+  background-color: teal;
+  color: white;
+
+  border-radius: 20px;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
 }

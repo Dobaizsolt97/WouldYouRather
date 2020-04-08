@@ -1,5 +1,6 @@
 import { GET_USERS } from "../actions/users";
 import { SET_ANSWER_U } from "../actions/answer";
+import { SET_QUESTION } from "../actions/questions";
 
 export default function Users(state = {}, action) {
   switch (action.type) {
@@ -9,7 +10,7 @@ export default function Users(state = {}, action) {
         ...action.users,
       };
     case SET_ANSWER_U:
-      const { authedUser, qid, answer } = action.answer;
+      let { authedUser, qid, answer } = action.answer;
       return {
         ...state,
         [authedUser]: {
@@ -20,6 +21,16 @@ export default function Users(state = {}, action) {
           },
         },
       };
+    case SET_QUESTION:
+      const { author, id } = action.question;
+      return {
+        ...state,
+        [author]: {
+          ...state[author],
+          questions: [...state[author].questions.concat([id])],
+        },
+      };
+
     default:
       return state;
   }

@@ -15,8 +15,11 @@ function BoardCard(props) {
         <img alt={user.name} src={user.avatarURL}></img>
         <h3>{user.name}</h3>
       </div>
+
       <div className="text-container">
-        <h1>{score} points</h1>
+        <div className="text-box">
+          <h1>{score} points</h1>
+        </div>
         <h2>{questions} questions asked</h2>
         <h2>{answers} answers given</h2>
       </div>

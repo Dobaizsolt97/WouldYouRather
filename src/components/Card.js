@@ -16,17 +16,19 @@ function Card(props) {
             <p>{postInfo.optionOne.text} OR ...</p>
 
             <Link to={`/question/${props.id}`}>
-              <button> See poll</button>
+              <button className="card-btn"> See poll</button>
             </Link>
           </div>
         </div>
         <div className="extra content">
           <div className="center aligned author">
-            <img
-              alt={user.name}
-              className="ui avatar image"
-              src={user.avatarURL}
-            />
+            <div className="imgae-holder">
+              <img
+                alt={user.name}
+                className="ui avatar image"
+                src={user.avatarURL}
+              />
+            </div>
           </div>
         </div>
       </div>

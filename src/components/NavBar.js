@@ -7,7 +7,7 @@ function NavBar(props) {
   return (
     <div>
       <div className="ui pointing menu">
-        <Link to="/" className="active item">
+        <Link to="/" className="item">
           Home
         </Link>
         <Link to="/add" className="item">

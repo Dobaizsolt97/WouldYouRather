@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import "./NewQuestion.css";
 
 import { handleSetQuestion } from "../actions/shared";
 
@@ -28,15 +29,19 @@ class NewQuestion extends React.Component {
     this.props.dispatch(handleSetQuestion(question));
     this.setState(() => ({ toHome: true }));
   };
+
   render() {
-    if (this.state.toHome === true) {
+    if (this.state.toHome) {
       return <Redirect to="/"></Redirect>;
     }
+
     console.log(this.state);
+    console.log(this.props.authed);
     return (
       <div className="ui container">
-        <form className="ui form">
+        <form className="ui form new-question-form">
           <div className="field">
+            <h1>Would you Rather</h1>
             <label>Option one</label>
             <input
               id="text1"
@@ -59,11 +64,7 @@ class NewQuestion extends React.Component {
             />
           </div>
           <div className="field"></div>
-          <button
-            onClick={this.handleSubmit}
-            className="ui button"
-            type="submit"
-          >
+          <button onClick={this.handleSubmit} className="button" type="submit">
             Submit
           </button>
         </form>

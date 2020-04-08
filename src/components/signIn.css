@@ -1,0 +1,70 @@
+.sign-in {
+  display: flex;
+
+  background-color: white;
+  padding: 25px;
+}
+.button {
+  background-color: #ff8928;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
+  border: 2px solid transparent;
+}
+.button:hover {
+  background-color: white;
+  color: #ff8928;
+  border: 2px solid #ff8928;
+}
+body {
+  background-color: #ffde22be;
+}
+/* .logo-container {
+  height: 400px;
+
+  background-image: url("../image/logo.jpg");
+  background-size: cover;
+  background-position: center;
+} */
+.logo-container {
+  height: 400px;
+  background-color: #ffde22be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 250px;
+  height: 250px;
+  background-image: url("../image/logo4.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  animation: spin ease-in-out 5s infinite;
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
