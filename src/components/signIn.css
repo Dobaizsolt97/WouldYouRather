@@ -1,7 +1,7 @@
 :root {
-  --accent-unselected: #ffb367;
-  --accent-selected: #ff8928;
-  --background-color: #8ec6c5;
+  --accent-unselected: #633a82;
+  --accent-selected: #633a82;
+  --background-color: #f1fcfc;
 }
 
 .sign-in {
@@ -9,6 +9,7 @@
 
   background-color: white;
   padding: 25px;
+  box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 .button {
   background-color: var(--accent-unselected);
@@ -26,16 +27,10 @@
 body {
   background-color: var(--background-color);
 }
-/* .logo-container {
-  height: 400px;
 
-  background-image: url("../image/logo.jpg");
-  background-size: cover;
-  background-position: center;
-} */
 .logo-container {
   height: 400px;
-  background-color: #ffde22be;
+  background-color: #b6dfdf;
   display: flex;
   align-items: center;
   justify-content: center;

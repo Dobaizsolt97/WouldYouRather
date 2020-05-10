@@ -5,12 +5,13 @@
 }
 .ui.card {
   width: 500px;
+  box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 button {
   color: white;
 }
 .card-btn {
-  background-color: teal;
+  background-color: #72b5b7;
   border: none;
   padding: 2px 8px;
   border-radius: 20px;

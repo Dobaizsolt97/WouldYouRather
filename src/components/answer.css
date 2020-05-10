@@ -37,7 +37,7 @@
 }
 .unanswered-button {
   color: white;
-  background-color: #ff892863;
+  background-color: #e5c4ff;
 
   border-radius: 20px;
   border: none;
@@ -45,7 +45,7 @@
   margin: 0 10px;
 }
 .chosen-btn {
-  background-color: teal;
+  background-color: #633a82;
   color: white;
 
   border-radius: 20px;
