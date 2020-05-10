@@ -1,3 +1,9 @@
+:root {
+  --accent-unselected: #ffb367;
+  --accent-selected: #ff8928;
+  --background-color: #8ec6c5;
+}
+
 .sign-in {
   display: flex;
 
@@ -5,7 +11,7 @@
   padding: 25px;
 }
 .button {
-  background-color: #ff8928;
+  background-color: var(--accent-unselected);
   border-radius: 20px;
   border: none;
   padding: 10px 25px;
@@ -14,11 +20,11 @@
 }
 .button:hover {
   background-color: white;
-  color: #ff8928;
-  border: 2px solid #ff8928;
+  color: var(--accent-selected);
+  border: 2px solid var(--accent-selected);
 }
 body {
-  background-color: #ffde22be;
+  background-color: var(--background-color);
 }
 /* .logo-container {
   height: 400px;
